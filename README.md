@@ -9,7 +9,7 @@ npm install
 npm run dev
 ```
 
-Локально сайт откроется на `http://localhost:3000/portfolio/`.
+Локально сайт откроется на `http://localhost:3000`.
 
 ## Сборка
 
@@ -19,13 +19,25 @@ npm run build
 
 Проект настроен на static export через `output: "export"` в `next.config.js`. После сборки статические файлы будут в папке `out`.
 
-По умолчанию сайт собирается для GitHub Pages по адресу `https://efialkovskaia.github.io/portfolio/`.
+Production-сборка настроена для GitHub Pages по адресу `https://efialkovskaia.github.io/portfolio/`.
 
 ## Публикация на GitHub Pages
 
-1. Соберите проект командой `npm run build`.
-2. Опубликуйте содержимое папки `out` в GitHub Pages.
-3. Если используете GitHub Actions, укажите `out` как папку артефакта для публикации.
+Сайт публикуется по адресу:
+
+```text
+https://efialkovskaia.github.io/portfolio/
+```
+
+После каждого push в ветку `main` сайт автоматически собирается и публикуется через GitHub Actions из workflow `.github/workflows/deploy.yml`.
+
+В настройках репозитория нужно выбрать:
+
+```text
+Settings → Pages → Build and deployment → Source → GitHub Actions
+```
+
+Для этого проекта используется `basePath: /portfolio` и `assetPrefix: /portfolio/` в production-сборке. Если в будущем репозиторий будет переименован, обновите `basePath` и `assetPrefix` в `next.config.js`.
 
 ## Резюме
 
@@ -51,19 +63,9 @@ npm run build
 https://efialkovskaia.github.io/portfolio/
 ```
 
-Если репозиторий будет называться иначе, задайте другой base path перед сборкой:
+Если репозиторий будет называться иначе, обновите значения `/portfolio` в `next.config.js`.
 
-```bash
-NEXT_PUBLIC_BASE_PATH=/repository-name npm run build
-```
-
-Этот путь используется в `next.config.js` для `basePath` и `assetPrefix`, а также в ссылках на локальные файлы вроде изображений и `resume.pdf`.
-
-Для пользовательского сайта вида `username.github.io` без подпапки соберите с пустым base path:
-
-```bash
-NEXT_PUBLIC_BASE_PATH= npm run build
-```
+Для пользовательского сайта вида `username.github.io` без подпапки уберите production-значения `basePath` и `assetPrefix`.
 
 ## Редактирование кейсов
 

@@ -1,5 +1,5 @@
 export function assetPath(path: string) {
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "/portfolio";
+  const basePath = process.env.NODE_ENV === "production" ? "/portfolio" : "";
 
   if (!path.startsWith("/")) {
     return `${basePath}/${path}`;
