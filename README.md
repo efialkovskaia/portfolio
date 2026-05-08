@@ -9,7 +9,7 @@ npm install
 npm run dev
 ```
 
-Локально сайт откроется на `http://localhost:3000`.
+Локально сайт откроется на `http://localhost:3000/portfolio/`.
 
 ## Сборка
 
@@ -18,6 +18,8 @@ npm run build
 ```
 
 Проект настроен на static export через `output: "export"` в `next.config.js`. После сборки статические файлы будут в папке `out`.
+
+По умолчанию сайт собирается для GitHub Pages по адресу `https://efialkovskaia.github.io/portfolio/`.
 
 ## Публикация на GitHub Pages
 
@@ -43,7 +45,13 @@ npm run build
 
 ## GitHub Pages repository path
 
-Если сайт публикуется не в корне домена, а в репозитории вида `username.github.io/repository-name`, задайте base path перед сборкой:
+Сейчас проект уже настроен под репозиторий `portfolio`, то есть под адрес:
+
+```text
+https://efialkovskaia.github.io/portfolio/
+```
+
+Если репозиторий будет называться иначе, задайте другой base path перед сборкой:
 
 ```bash
 NEXT_PUBLIC_BASE_PATH=/repository-name npm run build
@@ -51,10 +59,10 @@ NEXT_PUBLIC_BASE_PATH=/repository-name npm run build
 
 Этот путь используется в `next.config.js` для `basePath` и `assetPrefix`, а также в ссылках на локальные файлы вроде изображений и `resume.pdf`.
 
-Для пользовательского сайта вида `username.github.io` base path не нужен:
+Для пользовательского сайта вида `username.github.io` без подпапки соберите с пустым base path:
 
 ```bash
-npm run build
+NEXT_PUBLIC_BASE_PATH= npm run build
 ```
 
 ## Редактирование кейсов
