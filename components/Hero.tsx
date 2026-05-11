@@ -12,8 +12,8 @@ export function Hero() {
   return (
     <section className="mx-auto grid max-w-7xl gap-12 px-5 pb-16 pt-14 sm:px-6 sm:pb-20 sm:pt-20 lg:grid-cols-[1.1fr_0.9fr] lg:px-8 lg:pb-24 lg:pt-24">
       <div className="flex flex-col justify-center">
-        <p className="mb-5 text-base font-semibold text-accent">
-          UX/UI Designer · Product design
+        <p className="mb-5 text-xl font-normal text-ink sm:text-2xl">
+          Евгения Фиалковская
         </p>
         <h1 className="max-w-4xl text-4xl font-semibold leading-tight tracking-normal text-ink sm:text-5xl lg:text-6xl">
           UX/UI дизайнер для сложных продуктовых сценариев
