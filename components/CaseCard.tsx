@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { CaseStudy } from "@/data/cases";
 import { assetPath } from "./assetPath";
+import { keepShortWords } from "./typography";
 
 type CaseCardProps = {
   caseStudy: CaseStudy;
@@ -35,13 +36,15 @@ export function CaseCard({ caseStudy }: CaseCardProps) {
         </div>
         <p className="text-base font-semibold text-accent">{caseStudy.company}</p>
         <h3 className="mt-2 text-2xl font-semibold leading-tight text-ink">
-          {caseStudy.title}
+          {keepShortWords(caseStudy.title)}
         </h3>
-        <p className="mt-4 text-base leading-7 text-muted">{caseStudy.description}</p>
+        <p className="mt-4 text-base leading-7 text-muted">
+          {keepShortWords(caseStudy.description)}
+        </p>
         <div className="mt-5 space-y-2">
           {caseStudy.highlights.slice(0, 4).map((highlight) => (
             <p key={highlight} className="text-base leading-6 text-graphite">
-              {highlight}
+              {keepShortWords(highlight)}
             </p>
           ))}
         </div>

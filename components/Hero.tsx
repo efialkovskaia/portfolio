@@ -1,5 +1,6 @@
 import { assetPath } from "./assetPath";
 import { Button } from "./Button";
+import { keepShortWords } from "./typography";
 
 const bullets = [
   "4+ года в UX/UI и продуктовом дизайне",
@@ -16,16 +17,16 @@ export function Hero() {
           Евгения Фиалковская
         </p>
         <h1 className="max-w-4xl text-4xl font-semibold leading-tight tracking-normal text-ink sm:text-5xl lg:text-6xl">
-          UX/UI дизайнер для сложных продуктовых сценариев
+          {keepShortWords("UX/UI дизайнер сложных продуктовых сценариев")}
         </h1>
         <p className="mt-7 max-w-3xl text-lg leading-8 text-muted">
-          Проектирую мобильные и веб-интерфейсы для логистики, финтеха, банковских сервисов и EdTech. Помогаю командам превращать сложные процессы в понятные пользовательские сценарии — через анализ, исследования, прототипирование и системный дизайн.
+          {keepShortWords("Проектирую мобильные и веб-интерфейсы для логистики, финтеха, банковских сервисов и EdTech. Помогаю командам превращать сложные процессы в понятные пользовательские сценарии — через анализ, исследования, прототипирование и системный дизайн.")}
         </p>
         <ul className="mt-8 grid gap-3 text-base leading-7 text-graphite sm:grid-cols-2">
           {bullets.map((bullet) => (
             <li key={bullet} className="flex gap-3">
               <span className="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden="true" />
-              <span>{bullet}</span>
+              <span>{keepShortWords(bullet)}</span>
             </li>
           ))}
         </ul>
